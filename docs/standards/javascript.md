@@ -77,6 +77,15 @@ CRM_Core_Resources::singleton()->addScript('alert("hello");');
 
 You can also specify other regions of the page to place the script in (the most common reason for this is because jQuery plugins must be added to the "html-header" region). See [Resource Reference](https://wiki.civicrm.org/confluence/display/CRMDOC/Resource+Reference) for more details.
 
+!!!note
+    To ensure that the document.ready event fires make sure you specify region as 'pageheader'.
+    Example: ```CRM_Core_Resources::singleton()->addScriptFile('my.extension', 'js/my_javascript.js', 10, 'page-header');```
+    
+    In your js file: 
+    ```CRM.$(function($) {
+    console.log('hello world');
+    });```
+
 ## Using CiviCRM Javascript in non CiviCRM pages
 
 If you are working outside the context of CiviCRM pages (e.g. on a Drupal page, Wordpress widget, Joomla page, etc) you need to explicitly tell CiviCRM to load its javascript in to the page header. You can add your own scripts as well.
