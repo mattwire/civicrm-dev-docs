@@ -276,6 +276,10 @@ static function abend($code) {
 }
 ```
 
+### Callbacks
+If you need to perform an action after the transaction has completed you'll need to use a callback.  See `CRM_Core_Transaction::addCallback` for further details.  This is especially useful in [hook_civicrm_post](/hooks/hook_civicrm_post.md).
+   
+
 ## Special Topics
 
 ### `TRUNCATE` and `ALTER` force immediate commit
